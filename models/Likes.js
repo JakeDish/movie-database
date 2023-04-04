@@ -20,42 +20,42 @@ Likes.init(
         key: "id",
       },
     },
-    title: {
-      type: DataTypes.STRING,
+    isLiked: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      references: {
-        model: "movies",
-        key: "name",
-      },
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: "movies",
-        key: "description",
-      },
-    },
-    img: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: "movies",
-        key: "img",
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    isLiked:{
-      type:DataTypes.BOOLEAN,
-      allowNull:false,
-    }
+    // title: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   references: {
+    //     model: "movies",
+    //     key: "name",
+    //   },
+    // },
+    // description: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   references: {
+    //     model: "movies",
+    //     key: "description",
+    //   },
+    // },
+    // img: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   references: {
+    //     model: "movies",
+    //     key: "img",
+    //   },
+    // },
+    // user_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "user",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
