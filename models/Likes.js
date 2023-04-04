@@ -12,6 +12,10 @@ Likes.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    isLiked: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     movie_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,44 +31,7 @@ Likes.init(
         model: "user",
         key: "id",
       },
-      isLiked: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-      },
     },
-
-    // title: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   references: {
-    //     model: "movies",
-    //     key: "name",
-    //   },
-    // },
-    // description: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   references: {
-    //     model: "movies",
-    //     key: "description",
-    //   },
-    // },
-    // img: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   references: {
-    //     model: "movies",
-    //     key: "img",
-    //   },
-    // },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

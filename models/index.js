@@ -1,12 +1,26 @@
-const Movies = require("./Movies");
-const User = require("./User");
-const Likes = require("./Likes");
+const User = require("./user");
+const Movies = require("./movies");
+const Likes = require("./likes");
 
 //movies belongsTo user
-Movies.belongsTo(User, {
-  foreignKey: "",
+User.hasMany(Movies, {
+  foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
 //likes belongsTo movies
-Likes.belongsTo
+Movies.belongsTo(User, {
+  foreignKey: "user_id",
+})
+
+User.hasMany(Movies, {
+  through: Likes,
+  foreignKey: "user_id",
+})
+
+Movies.belongsToMany(User, {
+  through: Likes,
+  foreignKey: "movies_id",
+})
+
+module.exports= { User, Movies, Likes }

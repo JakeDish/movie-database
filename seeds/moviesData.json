@@ -1,14 +1,20 @@
 [
   {
-    "name": "My New Movie",
-    "description": "A super cool new movie you won't want to miss!"
+    "movie_name": "My New Movie",
+    "movie_description": "A super cool new movie you won't want to miss!",
+    "image_name": "https://picsum.photos/200/300",
+    "user_id": 1
   },
   {
-    "name": "The Best Movie Ever!",
-    "description": "Have you ever wanted to see the best movie ever? The wait is over!"
+    "movie_name": "The Best Movie Ever!",
+    "movie_description": "Have you ever wanted to see the best movie ever? The wait is over!",
+    "image_name": "https://picsum.photos/200/300",
+    "user_id": 2
   },
   {
-    "name": "An Okay Film",
-    "description": "Setting expectations low on this one."
+    "movie_name": "An Okay Film",
+    "movie_description": "Setting expectations low on this one.",
+    "image_name": "https://picsum.photos/200/300",
+    "user_id": 3
   }
 ]
