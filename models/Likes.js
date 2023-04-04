@@ -1,4 +1,4 @@
-const {Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
@@ -20,10 +20,19 @@ Likes.init(
         key: "id",
       },
     },
-    isLiked: {
-      type: DataTypes.BOOLEAN,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
+      isLiked: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
     },
+
     // title: {
     //   type: DataTypes.STRING,
     //   allowNull: false,
