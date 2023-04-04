@@ -24,7 +24,7 @@ const seedDatabase = async () => {
   for (const like of likesData) {
     await Likes.create({
       ...like,
-      movie_id: Math.floor(Math.random() * 3),
+      // movie_id: Math.floor(Math.random() * 3),
     });
   }
 

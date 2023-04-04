@@ -20,7 +20,7 @@ Movies.belongsTo(User, {
 
 Movies.belongsToMany(User, {
   through: Likes,
-  foreignKey: "movies_id",
+  foreignKey: "movie_id",
 });
 
 module.exports = { User, Movies, Likes };
