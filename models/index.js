@@ -11,16 +11,16 @@ User.hasMany(Movies, {
 //likes belongsTo movies
 Movies.belongsTo(User, {
   foreignKey: "user_id",
-})
+});
 
-User.hasMany(Movies, {
-  through: Likes,
-  foreignKey: "user_id",
-})
+// User.hasMany(Movies, {
+//   through: Likes,
+//   foreignKey: "user_id",
+// })
 
 Movies.belongsToMany(User, {
   through: Likes,
   foreignKey: "movies_id",
-})
+});
 
-module.exports= { User, Movies, Likes }
+module.exports = { User, Movies, Likes };
