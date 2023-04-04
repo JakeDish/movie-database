@@ -13,7 +13,7 @@ Movies.init(
     },
     movie_name: {
       type: DataTypes.STRING,
-    }
+    },
     movie_description: {
       type: DataTypes.STRING,
     },
@@ -25,9 +25,9 @@ Movies.init(
         autoIncrement: true,
          references: {
           model: 'user',
-          key: 'id'
-         }
-      }
+          key: 'id',
+         },
+      },
     },
   },
   {
