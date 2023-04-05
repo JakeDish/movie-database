@@ -5,7 +5,7 @@ const loginFormHandler = async function(event) {
   const userEmail = document.querySelector('#email-login');
   const passwordEl = document.querySelector('#password-login');
 
-  const response = await fetch('/api/user/login', {
+  const response = await fetch('/api/login', {
     method: 'POST',
     body: JSON.stringify({ 
       email: userEmail.value, 
@@ -14,6 +14,7 @@ const loginFormHandler = async function(event) {
   });
 
   if (response.ok) {
+
     document.location.replace('/dashboard');
   } else {
     alert('Failed to login');
