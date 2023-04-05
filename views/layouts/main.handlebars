@@ -46,10 +46,20 @@
               <a class="navbar-item" href="/likes">
                 Likes
               </a>
+
+            <!--Render Login or logout -->
               <span class="navbar-item">
+                {{#if logged_in}}
+                <a class="button is-info is-inverted mr-4" href="">
+                  <span>Sign Out</span>
+                </a>
+                {{else}}
                 <a class="button is-info is-inverted mr-4" href="/login">
                   <span>Login</span>
                 </a>
+                {{/if}}
+
+                
                 <a class="button is-info is-inverted is-success" href="/signup">
                 <span>Sign Up</span>
                 </a>
