@@ -1,26 +1,31 @@
 const newMovieHandler = async (event) => {
   event.preventDefault();
 
-  const filmName = document.querySelector("#film-name").value.trim();
-  const filmDescription = document
+  const movie_name = document.querySelector("#film-name").value.trim();
+  const movie_description = document
     .querySelector("#film-description")
     .value.trim();
+  const image_name = document.querySelector("#film-image").value.trim();
 
-  if (filmName && filmDescription) {
-    const res = await fetch(`/api/movies`, {
+  const user_id = 1;
+
+  if (movie_name && movie_description && image_name) {
+    const response = await fetch(`/api/movies`, {
       method: "POST",
-      body: JSON.stringify({ filmName, filmDescription }),
+      body: JSON.stringify({ movie_name, movie_description, image_name }),
       headers: {
         "Content-Type": "application/json",
       },
     });
-  }
 
-  if (res.ok) {
-    document.location.replace("/dashboard");
-  } else {
-    console.log("Failed creating movie");
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    } else {
+      alert("Failed to create movie");
+    }
   }
 };
 
-document.querySelector(".button").addEventListener("submit", newMovieHandler);
+document
+  .querySelector(".new-movie")
+  .addEventListener("submit", newMovieHandler);
