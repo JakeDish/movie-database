@@ -7,7 +7,7 @@ const newMovieHandler = async (event) => {
     .value.trim();
 
   if (filmName && filmDescription) {
-    const res = await fetch(`/api/movieSubmission`, {
+    const res = await fetch(`/api/movies`, {
       method: "POST",
       body: JSON.stringify({ filmName, filmDescription }),
       headers: {
