@@ -2,14 +2,15 @@ const router = require("express").Router();
 const { Movies, User } = require("../../models");
 
 router.get("/", (req, res) => {
-  Movies.findAll({ include: [User] })
+ Movies.findAll({ include: [User] })
     .then((movies) => {
       res.json(movies);
-    })
+      })
     .catch((err) => {
       console.log(err);
     });
 });
+
 
 router.get("/:id", (req, res) => {
   Movies.findOne({
