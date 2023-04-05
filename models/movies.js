@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Movies extends Model {}
 
@@ -20,21 +20,20 @@ Movies.init(
     image_name: {
       type: DataTypes.STRING,
     },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-         references: {
-          model: 'user',
-          key: 'id',
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'movies',
+    modelName: "movies",
   }
 );
 
