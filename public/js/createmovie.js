@@ -9,16 +9,15 @@ const newMovieHandler = async (event) => {
 
   // hard-coding user id for now to make sure there are no errors
   // we'll need to figure out how user_id gets passed in later
-  const user_id = 1;
+  // const user_id = 1;
 
-  if (movie_name && movie_description && image_name && user_id) {
+  if (movie_name && movie_description && image_name) {
     const response = await fetch(`/api/movies`, {
       method: "POST",
       body: JSON.stringify({
         movie_name,
         movie_description,
         image_name,
-        user_id,
       }),
       headers: {
         "Content-Type": "application/json",

@@ -13,6 +13,7 @@ Movies.init(
     },
     movie_name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     movie_description: {
       type: DataTypes.STRING,
@@ -22,7 +23,6 @@ Movies.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "user",
         key: "id",
