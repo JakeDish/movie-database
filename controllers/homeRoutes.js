@@ -16,13 +16,13 @@ router.get("/login", async (req, res) => {
 router.get("/likes", async (req, res) => {
   let user = req.session.user_id;
   //find only likes associated with logged in user
-  const likesData = await Likes.findAll({ 
+  const likesData = await Likes.findAll({
     where: {
       user_id: user,
       //do not include "unliked"
       is_liked: 1,
     },
-    include: [Movies] 
+    include: [Movies],
   });
   const likes = likesData.map((like) => like.get({ plain: true }));
   res.render("likes", { likes });
@@ -52,6 +52,23 @@ router.get("/", async (req, res) => {
   const moviesData = await Movies.findAll({ include: [User] });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
   res.render("homepage", { movies });
+});
+
+// single movie route, when editing
+router.get("/movie/:id", async (req, res) => {
+  try {
+    const movieData = await Movies.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    const movie = movieData.get({ plain: true });
+    res.render("editmovie", { movie });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

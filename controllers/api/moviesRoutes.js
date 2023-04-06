@@ -44,12 +44,18 @@ router.post("/", withAuth, async (req, res) => {
 // update a movie
 router.put("/:id", async (req, res) => {
   try {
-    const updatedMovie = Movies.update(req.body, {
-      where: {
-        id: req.params.id,
+    const updatedMovie = await Movies.update(
+      req.body,
+      {
+        movie_name: req.body.movie_name,
+        movie_description: req.body.movie_description,
       },
-    });
-
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
     res.status(200).json(updatedMovie);
   } catch (err) {
     res.status(400).json(err);
