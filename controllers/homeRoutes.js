@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movies, User } = require("../models");
+const { Movies, User, Likes } = require("../models");
 const withAuth = require("../utils/auth");
 // router.get('/', async (req, res) => {
 //   res.render('homepage')
@@ -11,6 +11,21 @@ router.get("/signup", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   res.render("login");
+});
+
+router.get("/likes", async (req, res) => {
+  let user = req.session.user_id;
+  //find only likes associated with logged in user
+  const likesData = await Likes.findAll({
+    where: {
+      user_id: user,
+      //do not include "unliked"
+      is_liked: 1,
+    },
+    include: [Movies],
+  });
+  const likes = likesData.map((like) => like.get({ plain: true }));
+  res.render("likes", { likes, logged_in: req.session.logged_in });
 });
 
 // Use withAuth middleware to prevent access to route
@@ -37,11 +52,6 @@ router.get("/", async (req, res) => {
   const moviesData = await Movies.findAll({ include: [User] });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
   res.render("homepage", { movies, logged_in: req.session.logged_in });
-});
-
-//loggout button appear based on the user's logged_in
-router.get("/likes", async (req, res) => {
-  res.render("likes", { logged_in: req.session.logged_in });
 });
 
 module.exports = router;
