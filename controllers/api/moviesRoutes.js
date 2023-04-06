@@ -41,18 +41,19 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
-  Movies.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((movies) => {
-      res.json(movies);
-    })
-    .catch((err) => {
-      console.log(err);
+// update a movie
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedMovie = Movies.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     });
+
+    res.status(200).json(updatedMovie);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.delete("/:id", (req, res) => {
