@@ -59,4 +59,21 @@ router.get("/", async (req, res) => {
   res.render("homepage", { movies, logged_in: req.session.logged_in });
 });
 
+// single movie route, when editing
+router.get("/movie/:id", async (req, res) => {
+  try {
+    const movieData = await Movies.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    const movie = movieData.get({ plain: true });
+    res.render("editmovie", { movie });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

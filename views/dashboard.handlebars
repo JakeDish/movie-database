@@ -33,9 +33,15 @@
       </div>
   
       <div class="column is-flex-direction-row">
-        <span class="title">{{movie.movie_name}}</span><br>
+        <span class="title">{{movie.movie_name}}</a></span><br>
         <span class="subtitle">{{movie.movie_description}}</span><br>
-        {{!-- <button class="button">Like</button> --}}
+        <button class="button"><a style="text-decoration: none;" href="/movie/{{movie.id}}">Edit</a></button>
+
+        {{!fetch the movie's id}}
+        <input type="hidden" name="movie-id" value="{{movie.id}}" /><br>
+
+        {{!delete button}}
+        <button id="deleteBtn" class="button is-danger is-light mt-4">Delete</button>
       </div>
     </div>
   </div>
@@ -44,3 +50,4 @@
 </div>
 
 <script src="./js/createmovie.js"></script>
+<script src="./js/deletemovie.js"></script>
