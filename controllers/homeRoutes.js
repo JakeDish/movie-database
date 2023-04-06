@@ -13,10 +13,6 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/likes", async (req, res) => {
-  res.render("likes");
-});
-
 // Use withAuth middleware to prevent access to route
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
@@ -40,7 +36,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/", async (req, res) => {
   const moviesData = await Movies.findAll({ include: [User] });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
-  res.render("homepage", { movies });
+  res.render("homepage", { movies, logged_in: req.session.logged_in });
+});
+
+//loggout button appear based on the user's logged_in
+router.get("/likes", async (req, res) => {
+  res.render("likes", { logged_in: req.session.logged_in });
 });
 
 module.exports = router;
