@@ -13,7 +13,8 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/likes", async (req, res) => {
+router.get("/likes", withAuth, async (req, res) => {
+  try{
   let user = req.session.user_id;
   //find only likes associated with logged in user
   const likesData = await Likes.findAll({
@@ -26,6 +27,10 @@ router.get("/likes", async (req, res) => {
   });
   const likes = likesData.map((like) => like.get({ plain: true }));
   res.render("likes", { likes, logged_in: req.session.logged_in });
+}
+  catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 // Use withAuth middleware to prevent access to route
