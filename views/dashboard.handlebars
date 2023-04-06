@@ -22,6 +22,25 @@
     </div>
   </form>
 
+  <h1 class="is-size-4	mt-5">{{user_name}}'s Movies:</h1>
+
+  {{#each movies as |movie|}}
+  <div class="box">
+  
+    <div class="columns is-mobile is-centered is-vcentered">
+      <div class="column">
+        <img src={{movie.image_name}} alt="">
+      </div>
+  
+      <div class="column is-flex-direction-row">
+        <span class="title">{{movie.movie_name}}</span><br>
+        <span class="subtitle">{{movie.movie_description}}</span><br>
+        {{!-- <button class="button">Like</button> --}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
 </div>
 
 <script src="./js/createmovie.js"></script>
