@@ -2,18 +2,19 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 
-
 router.post("/", async (req, res) => {
   try {
-    const newUser = req.body;
+    const userData = await User.create(req.body);
 
-    newUser.password = await bcrypt.hash(req.body.password, 10);
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-    const userData = await User.create(newUser);
-    res.status(200).json(userData);
+      res.status(200).json(userData);
+    });
   } catch (err) {
     res.status(400).json(err);
   }
-}); 
+});
 
 module.exports = router;
