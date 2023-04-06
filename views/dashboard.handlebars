@@ -36,10 +36,10 @@
         <span class="title">{{movie.movie_name}}</span><br>
         <span class="subtitle">{{movie.movie_description}}</span><br>
 
-        //fetch the movie's id
-        <input type="hidden" name="movie-id" value="{{movie.id}}" />
-        
-        //delete button
+        {{!fetch the movie's id}}
+        <input type="hidden" name="movie-id" value="{{movie.id}}" /><br>
+
+        {{!delete button}}
         <button id="deleteBtn" class="button is-danger is-light mt-4">Delete</button>
       </div>
     </div>
