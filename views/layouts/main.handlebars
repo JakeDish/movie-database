@@ -1,16 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> --}}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    {{! <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> }}
 
-  <title>Document</title>
-</head>
-<body>
-  {{!-- <section class="hero has-background-info-dark ">
+    <title>Document</title>
+  </head>
+  <body>
+    {{! <section class="hero has-background-info-dark ">
     <div class="hero-body">
       <p class="title has-text-white">
         Project Films
@@ -20,53 +19,71 @@
       </p>
     </div>
     <p class="is-pulled-left">Login</p>
-  </section> --}}
-  <section class="hero is-info is-large">
-    <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-      <h1 class="title is-4">Project Films</h1>
-            </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroB">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroB" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active" href="/">
-                Home
+  </section> }}
+    <section class="hero is-info is-large">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <h1 class="title is-4">Project Films</h1>
               </a>
-              <a class="navbar-item" href="/dashboard">
-                  Dashboard
-               </a>
-              <a class="navbar-item" href="/likes">
-                Likes
-              </a>
-              <span class="navbar-item">
-                <a class="button is-info is-inverted mr-4" href="/login">
-                  <span>Login</span>
-                </a>
-                <a class="button is-info is-inverted is-success" href="/signup">
-                <span>Sign Up</span>
-                </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroB">
+                <span></span>
+                <span></span>
+                <span></span>
               </span>
             </div>
+            <div id="navbarMenuHeroB" class="navbar-menu">
+              <div class="navbar-end">
+                <a class="navbar-item is-active" href="/">
+                  Home
+                </a>
+                <a class="navbar-item" href="/dashboard">
+                  Dashboard
+                </a>
+                <a class="navbar-item" href="/likes">
+                  Likes
+                </a>
+
+                <!--Using If Helper to render Login or logout -->
+                <span class="navbar-item">
+
+                  {{#if logged_in}}
+                    <button class="no-button" id="logout">Log Out</button>
+                  {{else}}
+                    <a class="button is-info is-inverted mr-4" href="/login">
+                      <span>Login</span>
+                    </a>
+                  {{/if}}
+
+                  
+                  <a
+                    class="button is-info is-inverted is-success"
+                    href="/signup"
+                  >
+                    <span>Sign Up</span>
+                  </a>
+
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
+
+    </section>
+    <div class="container is-max-desktop">
+      <div class="notification">
+
+        {{{body}}}
+      </div>
     </div>
-  
-  
-  </section>
-  <div class="container is-max-desktop">
-    <div class="notification">
-   
-  {{{body}}}
-    </div>
-  </div>
-</body>
+
+    <!-- Render script for logged in -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+
+  </body>
 </html>
