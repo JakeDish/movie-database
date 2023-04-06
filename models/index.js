@@ -13,6 +13,8 @@ Movies.belongsTo(User, {
   foreignKey: "user_id",
 });
 
+
+
 // User.hasMany(Movies, {
 //   through: Likes,
 //   foreignKey: "user_id",

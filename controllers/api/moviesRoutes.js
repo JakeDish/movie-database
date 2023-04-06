@@ -1,16 +1,16 @@
 const router = require("express").Router();
 const { Movies, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
- Movies.findAll({ include: [User] })
+  Movies.findAll({ include: [User] })
     .then((movies) => {
       res.json(movies);
-      })
+    })
     .catch((err) => {
       console.log(err);
     });
 });
-
 
 router.get("/:id", (req, res) => {
   Movies.findOne({
@@ -27,14 +27,18 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
-  Movies.create(req.body)
-  .then((movies) => {
-    res.json(movies);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// create new movie with Auth
+router.post("/", withAuth, async (req, res) => {
+  try {
+    const newMovie = await Movies.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newMovie);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.put("/:id", (req, res) => {
