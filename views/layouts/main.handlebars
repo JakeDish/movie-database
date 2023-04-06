@@ -56,8 +56,16 @@
                       <span>Login</span>
                     </a>
                   {{/if}}
-              
-                </span> 
+
+                  
+                  <a
+                    class="button is-info is-inverted is-success"
+                    href="/signup"
+                  >
+                    <span>Sign Up</span>
+                  </a>
+
+                </span>
               </div>
             </div>
           </div>
@@ -72,12 +80,10 @@
       </div>
     </div>
 
-
-
-  <!-- Render script for logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    <!-- Render script for logged in -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 
   </body>
 </html>
