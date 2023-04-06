@@ -16,16 +16,16 @@ router.get("/login", async (req, res) => {
 router.get("/likes", async (req, res) => {
   let user = req.session.user_id;
   //find only likes associated with logged in user
-  const likesData = await Likes.findAll({ 
+  const likesData = await Likes.findAll({
     where: {
       user_id: user,
       //do not include "unliked"
       is_liked: 1,
     },
-    include: [Movies] 
+    include: [Movies],
   });
   const likes = likesData.map((like) => like.get({ plain: true }));
-  res.render("likes", { likes });
+  res.render("likes", { likes, logged_in: req.session.logged_in });
 });
 
 // Use withAuth middleware to prevent access to route
@@ -51,7 +51,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/", async (req, res) => {
   const moviesData = await Movies.findAll({ include: [User] });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
-  res.render("homepage", { movies });
+  res.render("homepage", { movies, logged_in: req.session.logged_in });
 });
 
 module.exports = router;
