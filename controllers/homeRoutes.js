@@ -14,9 +14,17 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/likes", async (req, res) => {
-  const likesData = await Likes.findAll({ include: [Movies, User] });
+  var user = req.session.user_id;
+  //find only likes associated with logged in user
+  const likesData = await Likes.findAll({ 
+    where: {
+      user_id: user,
+      //do not include "unliked"
+      is_liked: 1,
+    },
+    include: [Movies] 
+  });
   const likes = likesData.map((like) => like.get({ plain: true }));
-  console.log(likes);
   res.render("likes", { likes });
 });
 
