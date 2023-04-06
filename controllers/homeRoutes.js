@@ -25,7 +25,7 @@ router.get("/likes", async (req, res) => {
     include: [Movies],
   });
   const likes = likesData.map((like) => like.get({ plain: true }));
-  res.render("likes", { likes });
+  res.render("likes", { likes, logged_in: req.session.logged_in });
 });
 
 // Use withAuth middleware to prevent access to route
@@ -51,7 +51,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/", async (req, res) => {
   const moviesData = await Movies.findAll({ include: [User] });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
-  res.render("homepage", { movies });
+  res.render("homepage", { movies, logged_in: req.session.logged_in });
 });
 
 // single movie route, when editing
