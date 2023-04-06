@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movies, User } = require("../models");
+const { Movies, User, Likes } = require("../models");
 const withAuth = require("../utils/auth");
 // router.get('/', async (req, res) => {
 //   res.render('homepage')
@@ -14,7 +14,18 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/likes", async (req, res) => {
-  res.render("likes");
+  let user = req.session.user_id;
+  //find only likes associated with logged in user
+  const likesData = await Likes.findAll({ 
+    where: {
+      user_id: user,
+      //do not include "unliked"
+      is_liked: 1,
+    },
+    include: [Movies] 
+  });
+  const likes = likesData.map((like) => like.get({ plain: true }));
+  res.render("likes", { likes });
 });
 
 // Use withAuth middleware to prevent access to route
