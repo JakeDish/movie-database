@@ -14,7 +14,7 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/likes", async (req, res) => {
-  var user = req.session.user_id;
+  let user = req.session.user_id;
   //find only likes associated with logged in user
   const likesData = await Likes.findAll({ 
     where: {
