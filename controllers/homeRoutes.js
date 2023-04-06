@@ -15,9 +15,10 @@ router.get("/login", async (req, res) => {
 });
 
 router.get("/likes", async (req, res) => {
-  const likesData = await Likes.findAll({ include: [Movies] });
+  const likesData = await Likes.findAll({ include: [Movies, User] });
   const likes = likesData.map((like) => like.get({ plain: true }));
   res.render("likes", { likes });
+  console.log(likesData);
 });
 
 router.get("/dashboard", async (req, res) => {
