@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Movies, User } = require("../models");
+const { Movies, User, Likes } = require("../models");
 const withAuth = require("../utils/auth");
 // router.get('/', async (req, res) => {
 //   res.render('homepage')
@@ -16,8 +16,8 @@ router.get("/login", async (req, res) => {
 router.get("/likes", async (req, res) => {
   const likesData = await Likes.findAll({ include: [Movies, User] });
   const likes = likesData.map((like) => like.get({ plain: true }));
+  console.log(likes);
   res.render("likes", { likes });
-  console.log(likesData);
 });
 
 // Use withAuth middleware to prevent access to route
