@@ -10,8 +10,13 @@
     <div class="column is-flex-direction-row">
       <span class="title">{{like.movie.movie_name}}</span><br>
       <span class="subtitle">{{like.movie.movie_description}}</span><br>
-      <button class="button is-danger is-light">Unlike</button>
+      <button class="button is-danger is-light unlike-button">Unlike
+        <input type="hidden" name="like-id" value="{{like.id}}" />
+      </button>
+      
     </div>
   </div>
 {{/each}}
 </div>
+
+<script src="./js/unlike.js"></script>

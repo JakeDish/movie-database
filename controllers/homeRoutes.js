@@ -19,9 +19,9 @@ router.get("/likes", withAuth, async (req, res) => {
   //find only likes associated with logged in user
   const likesData = await Likes.findAll({
     where: {
-      user_id: user,
       //do not include "unliked"
       is_liked: 1,
+      user_id: user,
     },
     include: [Movies],
   });

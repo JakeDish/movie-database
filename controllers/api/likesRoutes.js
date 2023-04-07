@@ -13,18 +13,13 @@ router.get("/", (req, res) => {
 });
 
 
-router.put("/:id", (req, res) => {
-  Likes.update(req.body, {
+router.put("/:id", async (req, res) => {
+  const likedata = await Likes.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
-    .then((likes) => {
-      res.json(likes);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  res.status(200).json(likedata)
 });
 
 module.exports = router;
