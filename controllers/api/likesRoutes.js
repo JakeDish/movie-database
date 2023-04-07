@@ -35,4 +35,18 @@ router.post("/", async (req, res) => {
   }
   });
 
+router.delete("/:id", (req, res) => {
+  Likes.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((movies) => {
+      res.json(movies);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
