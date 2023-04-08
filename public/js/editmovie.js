@@ -38,6 +38,22 @@ const editMovieHandler = async (event) => {
   }
 };
 
+const checkBoxHandler = () => {
+  var checkBox = document.getElementById("check-box");
+
+  var text = document.getElementById("movie-img");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true) {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
+  }
+};
+
+//Display checkbox text
+document.querySelector("#check-box").addEventListener("click", checkBoxHandler);
+
 document
   .querySelector("#save-button")
   .addEventListener("click", editMovieHandler);
