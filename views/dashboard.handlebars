@@ -49,13 +49,11 @@
               href="/movie/{{movie.id}}"
             >Edit</a></button>
 
-          {{!fetch the movie's id}}
-          <input type="hidden" name="movie-id" value="{{movie.id}}" /><br />
-
           {{!delete button}}
           <button
-            id="deleteBtn"
-            class="button is-danger is-light mt-4"
+            class="deleteBtn button is-danger is-light mt-4"
+            data-id="
+            {{movie.id}}"
           >Delete</button>
 
         </div>
