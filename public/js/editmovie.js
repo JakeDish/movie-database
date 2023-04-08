@@ -1,12 +1,23 @@
-const editMovieHandler = async () => {
+const editMovieHandler = async (event) => {
+  event.preventDefault();
+
   const movie_name = document.querySelector("#movie-title").textContent;
   const movie_description = document.querySelector("#desc").textContent;
-  const image_name = document.querySelector("#movie-img").textContent;
+  let image_name = document.querySelector("#movie-img").textContent;
 
   // get movie id from url
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
+
+  const testing = await fetch(`/api/movies/${id}`);
+  const img = await testing.json();
+  console.log(img.image_name);
+  const image_nameNew = img.image_name;
+
+  if (image_name === "Enter a new URL for the image") {
+    image_name = image_nameNew;
+  }
 
   const response = await fetch(`/api/movies/${id}`, {
     method: "PUT",
