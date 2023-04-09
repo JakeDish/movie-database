@@ -16,7 +16,8 @@ Movies.init(
       allowNull: false,
     },
     movie_description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT("long"),
+      allowNull: false,
     },
     image_name: {
       type: DataTypes.STRING,
