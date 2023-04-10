@@ -1,4 +1,3 @@
-<h1>Hello!</h1>
 
 {{#each movies as |movie|}}
 <div class="box">
@@ -12,7 +11,12 @@
     <div class="column is-flex-direction-row">
       <span class="title">{{movie.movie_name}}</span><br>
       <span class="subtitle">{{movie.movie_description}}</span><br>
+      {{!-- only show like button if user is logged --}}
+      {{!-- {{#if ../logged_in}} --}}
       <button class="button">Like</button>
+      {{!-- {{/if}} --}}
+      
+      
     </div>
   </div>
 </div>
