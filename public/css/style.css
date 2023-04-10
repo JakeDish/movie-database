@@ -1,1 +1,5 @@
 @import 'bulma/css/bulma.css';
+.movie-image{
+  height: 500px;
+  width: 350px
+}
