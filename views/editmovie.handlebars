@@ -2,7 +2,7 @@
   YOLO
   <div class="columns is-mobile is-centered is-vcentered">
     <div class="column">
-      <img src={{movie.image_name}} alt="" />
+      <img id="old-image" src={{movie.image_name}} alt="" />
     </div>
 
     <div class="column is-flex-direction-row">
@@ -17,14 +17,8 @@
         contenteditable="true"
       >{{movie.movie_description}}</span><br />
 
-      <label class="subtitle" for="">Would you like to change the movie's image? Yes </label>
-      <input type="checkbox" id="check-box" />
-      <span
-        id="movie-img"
-        style="display:none"
-        class="subtitle"
-        contenteditable="true"
-      >Enter a new URL for the image</span><br />
+      
+      <input id="movie-img" type="text"class="input is-rounded mt-3" placeholder="Movie's Image URL"></input><br />
       <button id="save-button" class="button is-success is-outlined mt-3">Save
         Edits</button>
     </div>
