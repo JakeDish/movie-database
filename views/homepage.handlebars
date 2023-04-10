@@ -11,7 +11,7 @@
       <span class="title">{{movie.movie_name}}</span><br>
       <span class="subtitle">{{movie.movie_description}}</span><br>
       {{#if ../logged_in }} 
-        <button class="button like-button">Like
+        <button class="button like-button has-background-success-light">Like
           <input type="hidden" name="like-id" value="{{movie.id}}" />
         </button>
        {{/if}}
