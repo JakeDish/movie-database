@@ -6,15 +6,17 @@
   <div class="columns is-mobile is-centered is-vcentered">
     <div class="column">
       <img src={{movie.image_name}} alt="">
-      {{!-- <img src="https://i.imgur.com/Pyp4DwX.png" alt=""> --}}
     </div>
     
     <div class="column is-flex-direction-row">
       <span class="title">{{movie.movie_name}}</span><br>
       <span class="subtitle">{{movie.movie_description}}</span><br>
-      <button class="button">Like</button>
+      <button class="button like-button">Like
+        <input type="hidden" name="like-id" value="{{movie.id}}" />
+      </button>
     </div>
   </div>
 </div>
 {{/each}}
 
+<script src="./js/like.js"></script>

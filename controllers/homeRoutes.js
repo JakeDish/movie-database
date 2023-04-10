@@ -14,19 +14,24 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/likes", async (req, res) => {
+router.get("/likes", withAuth, async (req, res) => {
+  try{
   let user = req.session.user_id;
   //find only likes associated with logged in user
   const likesData = await Likes.findAll({
     where: {
-      user_id: user,
       //do not include "unliked"
       is_liked: 1,
+      user_id: user,
     },
     include: [Movies],
   });
   const likes = likesData.map((like) => like.get({ plain: true }));
   res.render("likes", { likes, logged_in: req.session.logged_in, title: 'likes', active: {likes: true} });
+}
+  catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 // Use withAuth middleware to prevent access to route
@@ -68,5 +73,21 @@ router.get("/", async (req, res) => {
 //     .grey()
 //   res.render('homepage', { imageSize })
 // });
+// single movie route, when editing
+router.get("/movie/:id", async (req, res) => {
+  try {
+    const movieData = await Movies.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    const movie = movieData.get({ plain: true });
+    res.render("editmovie", { movie });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
