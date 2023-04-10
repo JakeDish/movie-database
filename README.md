@@ -56,4 +56,4 @@ User sourced movie database.
 
 ## Published Application
 
-[Deployed App](https://github.com/slurpsz)
+[Deployed App](https://uciprojfilms.herokuapp.com/)
