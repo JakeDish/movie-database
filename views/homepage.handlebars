@@ -1,4 +1,3 @@
-<h1>Hello!</h1>
 
 {{#each movies as |movie|}}
 <div class="box">
@@ -11,9 +10,11 @@
     <div class="column is-flex-direction-row">
       <span class="title">{{movie.movie_name}}</span><br>
       <span class="subtitle">{{movie.movie_description}}</span><br>
-      <button class="button like-button">Like
-        <input type="hidden" name="like-id" value="{{movie.id}}" />
-      </button>
+      {{#if ../logged_in }} 
+        <button class="button like-button">Like
+          <input type="hidden" name="like-id" value="{{movie.id}}" />
+        </button>
+       {{/if}}
     </div>
   </div>
 </div>
