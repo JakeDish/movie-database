@@ -23,3 +23,8 @@ body{
 .title{
   color: white !important;
 }
+
+.like-button {
+  background-color: #781f8f;
+  color: white;
+}
