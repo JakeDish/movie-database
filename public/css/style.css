@@ -33,3 +33,8 @@ body{
   color: white;
   background-color: #d169e2;
 }
+
+.movie-image{
+  height: 500px;
+  width: 350px
+}
