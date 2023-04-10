@@ -29,6 +29,13 @@ Movies.init(
         key: "id",
       },
     },
+    likes_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "likes",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
