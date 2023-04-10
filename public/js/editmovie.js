@@ -1,7 +1,23 @@
-const editMovieHandler = async () => {
+const editMovieHandler = async (event) => {
+  event.preventDefault();
+
   const movie_name = document.querySelector("#movie-title").textContent;
   const movie_description = document.querySelector("#desc").textContent;
-  const image_name = document.querySelector("#movie-img").textContent;
+  let image_name = document.querySelector("#movie-img").value;
+
+  const old_image = document.querySelector("#old-image").getAttribute("src");
+
+  var testValue = image_name.split(".").pop();
+
+  if (
+    testValue !== "jpg" &&
+    testValue !== "jpeg" &&
+    testValue !== "gif" &&
+    testValue !== "png" &&
+    testValue === ""
+  ) {
+    image_name = old_image;
+  }
 
   // get movie id from url
   const id = window.location.toString().split("/")[
