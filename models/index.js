@@ -13,8 +13,6 @@ Movies.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-
-
 // User.hasMany(Movies, {
 //   through: Likes,
 //   foreignKey: "user_id",
@@ -37,16 +35,15 @@ Movies.hasMany(Likes, {
 
 User.hasMany(Likes, {
   foreignKey: "user_id",
-  onDelete: "CASCADE"
+  onDelete: "CASCADE",
 });
 
 Likes.belongsTo(User, {
-  foreignKey: "user_id"
+  foreignKey: "user_id",
 });
 
 Likes.belongsTo(Movies, {
-  foreignKey: "movie_id"
+  foreignKey: "movie_id",
 });
-
 
 module.exports = { User, Movies, Likes };

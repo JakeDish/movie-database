@@ -16,7 +16,8 @@ Movies.init(
       allowNull: false,
     },
     movie_description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT("long"),
+      allowNull: false,
     },
     image_name: {
       type: DataTypes.STRING,
@@ -25,6 +26,13 @@ Movies.init(
       type: DataTypes.INTEGER,
       references: {
         model: "user",
+        key: "id",
+      },
+    },
+    likes_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "likes",
         key: "id",
       },
     },

@@ -1,16 +1,26 @@
-
 <div class="box">
-YOLO
+  YOLO
   <div class="columns is-mobile is-centered is-vcentered">
     <div class="column">
-      <img class="movie-image" src={{movie.image_name}} alt="">
+      <img id="old-image" class="movie-image"src={{movie.image_name}} alt="" />
     </div>
 
     <div class="column is-flex-direction-row">
-      <span id="movie-title" class="title" contenteditable="true">{{movie.movie_name}}</a></span>
-      <span id="desc" class="subtitle" contenteditable="true"><br>{{movie.movie_description}}<br></span>
-      <span id="movie-img" class="subtitle" contenteditable="true">Enter a new URL for the image</span><br>
-      <button id="save-button" class="button is-success is-outlined mt-3">Save Edits</button>
+      <span
+        id="movie-title"
+        class="title"
+        contenteditable="true"
+      >{{movie.movie_name}}</span><br />
+      <span
+        id="desc"
+        class="subtitle"
+        contenteditable="true"
+      ><br>{{movie.movie_description}}<br></span><br />
+
+      
+      <input id="movie-img" type="text"class="input is-rounded mt-3" placeholder="Movie's Image URL"></input><br />
+      <button id="save-button" class="button is-success is-outlined mt-3">Save
+        Edits</button>
     </div>
   </div>
 </div>

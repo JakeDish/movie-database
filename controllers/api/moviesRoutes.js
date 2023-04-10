@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Movies, User } = require("../../models");
+const { Movies, User, Likes } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
-  Movies.findAll({ include: [User] })
+  Movies.findAll({ include: [User], include: [Likes] })
     .then((movies) => {
       res.json(movies);
     })
@@ -43,6 +43,7 @@ router.post("/", withAuth, async (req, res) => {
 
 // update a movie
 router.put("/:id", async (req, res) => {
+  console.log(req.body);
   try {
     const updatedMovie = await Movies.update(req.body, {
       where: {

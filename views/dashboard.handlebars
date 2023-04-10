@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container has-text-centered pb-3">
-    <p class="title">{{user_name}}'s Dashboard</p>
+    <p class="title white-title">{{user_name}}'s Dashboard</p>
   </div>
 
   <form class="form new-movie">
@@ -44,18 +44,16 @@
         <div class="column is-flex-direction-row">
           <span class="title">{{movie.movie_name}}</span>
           <br><span class="subtitle"><br>{{movie.movie_description}}<br></span><br>
-          <button class="button is-link is-light mt-2"><a
+          <button class="button is-link is-light mt-4"><a
               style="text-decoration: none;"
               href="/movie/{{movie.id}}"
-            >Edit</a></button>
-
-          {{!fetch the movie's id}}
-          <input type="hidden" name="movie-id" value="{{movie.id}}" /><br />
+            >Edit</a></button><br />
 
           {{!delete button}}
           <button
-            id="deleteBtn"
-            class="button is-danger is-light mt-4"
+            class="deleteBtn button is-danger is-light mt-4"
+            data-id="
+            {{movie.id}}"
           >Delete</button>
 
         </div>

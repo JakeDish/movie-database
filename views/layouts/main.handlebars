@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="/css/style.css" />
     {{! <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> }}
 
-    <title>Document</title>
+    <title>Project Films</title>
   </head>
-  <body>
+  <body class="has-background-grey-light">
     {{! <section class="hero has-background-info-dark ">
     <div class="hero-body">
       <p class="title has-text-white">
@@ -20,13 +20,13 @@
     </div>
     <p class="is-pulled-left">Login</p>
   </section> }}
-    <section class="hero is-info is-large">
+    <section class="hero is-info is-large has-background-black-bis">
       <div class="hero-head">
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item">
-                <h1 class="title is-4"><a href="/">Project Films</a></h1>
+              <a class="navbar-item" href="/">
+                <h1 class="title is-1 has-text-weight-bold">Project Films</h1>
               </a>
               <span class="navbar-burger" data-target="navbarMenuHeroB">
                 <span></span>
@@ -36,15 +36,19 @@
             </div>
             <div id="navbarMenuHeroB" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item is-active" href="/">
+               
+                <a class="navbar-item {{#if active.homepage}}is-active{{/if}}" href="/">
                   Home
                 </a>
-                <a class="navbar-item" href="/dashboard">
+              
+                <a class="navbar-item {{#if active.dashboard}}is-active{{/if}}" href="/dashboard">
                   Dashboard
                 </a>
-                <a class="navbar-item" href="/likes">
+                <a class="navbar-item {{#if active.likes}}is-active{{/if}}" href="/likes">
                   Likes
                 </a>
+                
+              
 
                 <!--Using If Helper to render Login or logout -->
                 <span class="navbar-item">
@@ -74,7 +78,7 @@
 
     </section>
     <div class="container is-max-desktop">
-      <div class="notification">
+      <div class="notification has-background-info-light mt-6">
 
         {{{body}}}
       </div>
