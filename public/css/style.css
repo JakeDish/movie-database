@@ -23,3 +23,8 @@ body{
 .white-title{
   color: white !important;
 }
+
+.movie-image{
+  height: 500px;
+  width: 350px
+}
