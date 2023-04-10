@@ -25,7 +25,7 @@
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item">
+              <a class="navbar-item" href="/">
                 <h1 class="title is-4">Project Films</h1>
               </a>
               <span class="navbar-burger" data-target="navbarMenuHeroB">
@@ -36,15 +36,19 @@
             </div>
             <div id="navbarMenuHeroB" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item is-active" href="/">
+               
+                <a class="navbar-item {{#if active.homepage}}is-active{{/if}}" href="/">
                   Home
                 </a>
-                <a class="navbar-item" href="/dashboard">
+              
+                <a class="navbar-item {{#if active.dashboard}}is-active{{/if}}" href="/dashboard">
                   Dashboard
                 </a>
-                <a class="navbar-item" href="/likes">
+                <a class="navbar-item {{#if active.likes}}is-active{{/if}}" href="/likes">
                   Likes
                 </a>
+                
+              
 
                 <!--Using If Helper to render Login or logout -->
                 <span class="navbar-item">

@@ -12,7 +12,7 @@ Likes.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    isLiked: {
+    is_liked: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },

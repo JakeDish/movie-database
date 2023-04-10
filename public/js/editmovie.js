@@ -1,6 +1,7 @@
 const editMovieHandler = async () => {
   const movie_name = document.querySelector("#movie-title").textContent;
   const movie_description = document.querySelector("#desc").textContent;
+  const image_name = document.querySelector("#movie-img").textContent;
 
   // get movie id from url
   const id = window.location.toString().split("/")[
@@ -12,6 +13,7 @@ const editMovieHandler = async () => {
     body: JSON.stringify({
       movie_name,
       movie_description,
+      image_name,
     }),
     headers: {
       "Content-Type": "application/json",
