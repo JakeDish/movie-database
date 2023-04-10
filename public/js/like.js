@@ -19,6 +19,11 @@ const like = (e) => {
   } else {
     console.log(response);
   }
+
+  // reload to get updated like count w/ delay for animation to run
+  setTimeout(() => {
+    location.reload();
+  }, 1000);
 };
 
 document.querySelectorAll(".like-button").forEach(function (item) {

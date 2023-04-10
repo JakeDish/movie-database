@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Movies, User } = require("../../models");
+const { Movies, User, Likes } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
-  Movies.findAll({ include: [User] })
+  Movies.findAll({ include: [User], include: [Likes] })
     .then((movies) => {
       res.json(movies);
     })
