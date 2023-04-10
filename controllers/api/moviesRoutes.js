@@ -43,7 +43,6 @@ router.post("/", withAuth, async (req, res) => {
 
 // update a movie
 router.put("/:id", async (req, res) => {
-  console.log(req.body);
   try {
     const updatedMovie = await Movies.update(req.body, {
       where: {

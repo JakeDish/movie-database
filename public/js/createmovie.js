@@ -32,6 +32,7 @@ const newMovieHandler = async (event) => {
   }
 };
 
+
 document
   .querySelector(".new-movie")
   .addEventListener("submit", newMovieHandler);

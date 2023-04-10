@@ -12,7 +12,7 @@ const deleteHandler = async (event) => {
       alert("Failed to delete movie");
     }
   }
-};
+}; 
 
 [...document.querySelectorAll(".deleteBtn")].forEach(function (item) {
   item.addEventListener("click", deleteHandler);

@@ -12,9 +12,10 @@
       <span class="title">{{movie.movie_name}}</span><br>
       <span class="subtitle"><br>{{movie.movie_description}}<br></span><br>
       {{#if ../logged_in }} 
-        <button class="button like-button has-background-success-light">Like
+        <button class="button like-button has-background-success-light"><i class="fa-regular fa-thumbs-up"></i>Like
           <input type="hidden" name="like-id" value="{{movie.id}}" />
         </button>
+        
        {{/if}}
       <p>Liked: {{movie.totalLiked}} times</p>
     </div>
