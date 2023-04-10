@@ -12,10 +12,14 @@ body{
 }
 
 .has-background-info-light {
-    background-color: #eff5fb !important;
-    border:5px solid #d169e2;
+    background-color:  rgba(0, 0, 0, .25) !important;
+    /* border:5px solid #d169e2; */
 }
 
 .hero.is-info a.navbar-item:hover, .hero.is-info a.navbar-item.is-active, .hero.is-info .navbar-link:hover, .hero.is-info .navbar-link.is-active{
   background-color: #781f8f;
+}
+
+.title{
+  color: white !important;
 }
