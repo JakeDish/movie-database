@@ -1,6 +1,11 @@
 @import "bulma/css/bulma.css";
 @import "animate.css/animate.css";
 
+
+i {
+  margin-right: 10px;
+}
+
 body{
   background: rgb(184,8,168);
   background: radial-gradient(circle, rgba(184,8,168,1) 0%, rgba(120,31,143,1) 61%, rgba(103,5,74,1) 100%);
