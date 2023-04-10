@@ -61,11 +61,26 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  const moviesData = await Movies.findAll({ include: [User] });
+  const moviesData = await Movies.findAll({
+    include: [User, Likes],
+  });
   const movies = moviesData.map((movie) => movie.get({ plain: true }));
+  // console.log(movies);
+  // get users length for liked count
+  // console.log(movies[0].users.length);
+  // let likedArr = [];
+  // movies.forEach((movie) => {
+  //   if (movie.likes === "") {
+  //     likedArr.push = 0;
+  //   } else {
+  //     likedArr.push = movie.user.length;
+  //   }
+  // });
+  // console.log(likedArr);
 
   res.render("homepage", {
     movies,
+    likedArr,
     logged_in: req.session.logged_in,
     title: "homepage",
     active: { homepage: true },

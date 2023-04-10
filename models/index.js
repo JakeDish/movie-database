@@ -9,9 +9,9 @@ User.hasMany(Movies, {
 });
 
 //likes belongsTo movies
-// Movies.belongsTo(User, {
-//   foreignKey: "user_id",
-// });
+Movies.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
 // User.hasMany(Movies, {
 //   through: Likes,
