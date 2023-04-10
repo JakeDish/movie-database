@@ -29,6 +29,16 @@ body{
   color: white !important;
 }
 
+.like-button {
+  background-color: #781f8f;
+  color: white;
+}
+
+.like-button:hover, .like-button:focus {
+  color: white;
+  background-color: #d169e2;
+}
+
 .movie-image{
   height: 500px;
   width: 350px
